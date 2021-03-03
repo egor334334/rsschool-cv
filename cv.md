@@ -43,7 +43,7 @@ class Parser:
         authors = soup.find_all('td', {'class': author_class})
         return self._parse_chart(songs, authors)
 ```
-[example](https://github.com/egor334334/pythonProject)
+[example](https://github.com/egor334334/pythonProject/blob/master/chart/chart_parser.py)
  
 # 6. Education:
 * higher education (BNTU- road construction engineer)
