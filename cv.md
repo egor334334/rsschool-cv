@@ -46,7 +46,7 @@ class Parser:
 [example](https://github.com/egor334334/pythonProject/blob/master/chart/chart_parser.py)
  
 # 6. Education:
-* higher education (BNTU- road construction engineer)
+* higher education (BNTU (Belarusian National Technical University)- road construction engineer)
 * Python language basics (IBA-group)
 
 # 7. Language level: 
