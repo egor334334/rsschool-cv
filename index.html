@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css" />
+    <title>CV-crosscheck</title>
+</head>
+<body>
+    <p><img src="foto.jpg" alt="Мое фото"></p>
+  <header>
+    <h1>Egor Adashkevich</h1>        
+  </header>
+  <article>
+    <h2>Brief information about me:</h2>
+    <ul>
+        <li>my goal is to become a high-class IT specialist;</li>
+        <li>purposeful, quickly absorb information;</li>
+        <li>construction expert, road construction engineer (current position).</li>
+    </ul>
+    </article>
+    <article>
+        <h2>Code example (Python)</h2>
+        <pre><code>
+            import requests
+from bs4 import BeautifulSoup
+URL=r'https://www.last.fm/charts'
+
+class Parser:
+    def __init__(self):
+        self.session=requests.Session()
+
+    def get_chart(self):
+        response=self.session.get(URL)
+        return response.text
+
+    @staticmethod
+    def _parse_chart(songs: list, autors: list):
+        response = []
+        for song, author in zip(songs, autors):
+            data = {'song': song.string, 'author': author.string}
+            response.append(data)
+        return response
+
+    def parse_chart(self):
+        content=self.get_chart()
+        soup=BeautifulSoup(content, 'html.parser')
+        song_class='link-block-target'
+        author_class='globalchart-track-artist-name'
+        songs=soup.find_all('a', {'class':song_class})
+        authors = soup.find_all('td', {'class': author_class})
+        return self._parse_chart(songs, authors)
+        </code></pre>
+    </article>
+    <article>
+        <h2>Education</h2>
+        <p>higher education (BNTU (Belarusian National Technical University)- road construction engineer)</p>
+    </article>
+    <article>
+        <h2>English</h2>
+        <p>English was studied at school and at university</p>
+    </article>
+    <footer>
+        <a href="https://rs.school/js/"></a>
+        Copyright (C) 2021
+    </footer>
+</body>
+</html>
