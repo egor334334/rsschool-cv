@@ -1,68 +1,96 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="style.css" />
-    <title>CV-crosscheck</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+    <title>cv</title>
 </head>
 <body>
-    <p><img src="foto.jpg" alt="Мое фото"></p>
-  <header>
-    <h1>Egor Adashkevich</h1>        
-  </header>
-  <article>
-    <h2>Brief information about me:</h2>
-    <ul>
-        <li>my goal is to become a high-class IT specialist;</li>
-        <li>purposeful, quickly absorb information;</li>
-        <li>construction expert, road construction engineer (current position).</li>
-    </ul>
-    </article>
-    <article>
-        <h2>Code example (Python)</h2>
-        <pre><code>
-            import requests
-from bs4 import BeautifulSoup
-URL=r'https://www.last.fm/charts'
-
-class Parser:
-    def __init__(self):
-        self.session=requests.Session()
-
-    def get_chart(self):
-        response=self.session.get(URL)
-        return response.text
-
-    @staticmethod
-    def _parse_chart(songs: list, autors: list):
-        response = []
-        for song, author in zip(songs, autors):
-            data = {'song': song.string, 'author': author.string}
-            response.append(data)
-        return response
-
-    def parse_chart(self):
-        content=self.get_chart()
-        soup=BeautifulSoup(content, 'html.parser')
-        song_class='link-block-target'
-        author_class='globalchart-track-artist-name'
-        songs=soup.find_all('a', {'class':song_class})
-        authors = soup.find_all('td', {'class': author_class})
-        return self._parse_chart(songs, authors)
-        </code></pre>
-    </article>
-    <article>
-        <h2>Education</h2>
-        <p>higher education (BNTU (Belarusian National Technical University)- road construction engineer)</p>
-    </article>
-    <article>
-        <h2>English</h2>
-        <p>English was studied at school and at university</p>
-    </article>
-    <footer>
-        <a href="https://rs.school/js/"></a>
-        Copyright (C) 2021
+    <header class="header">
+        <div class="container"></div>
+        <nav class="nav">
+            <ul class="nav-list">
+              <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+              <li class="nav-item"><a href="#summary" class="nav-link">Summary</a></li>
+              <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+              <li class="nav-item"><a href="#code" class="nav-link">Code</a></li>
+              <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+              <li class="nav-item"><a href="#english" class="nav-link">English</a></li>
+            </ul>
+          </nav>
+    </header>   
+    <main class="main">
+        <div class="container main-container">
+            <section class="section" id="profile">
+                <h1 class="section-title">Egor Adashkevich</h1>
+                <h2 class="section-title">road engineer</h2>
+                <p><img src="foto.jpg" alt="Мое фото"></p> 
+            </section>
+            <section class="section" id="contacts">
+                <h2 class="section-title">Contacts</h2>
+                 <ul>
+                     <li>Mobile phone: +375-29-706-08-06</li>
+                     <li>Email: egor334@gmail.com</li>
+                 </ul>  
+            </section>
+            <section class="section" id="summary">
+                <h2 class="section-title">Summary</h2>
+                <ul>
+                    <li>my goal is to become a high-class IT specialist;</li>
+                    <li>purposeful, quickly absorb information;</li>
+                    <li>construction expert, road construction engineer (current position).</li>
+                </ul>           
+            </section>
+            <section class="section" id="skills">
+                <h2 class="section-title">Skills</h2>
+                <p>Python language basic</p>
+            </section>
+            <section class="section" id="code">
+                <h2 class="section-title">Code</h2>
+                <pre><code>
+                    import requests
+        from bs4 import BeautifulSoup
+        URL=r'https://www.last.fm/charts'
+             
+            @staticmethod
+            def _parse_chart(songs: list, autors: list):
+                response = []
+                for song, author in zip(songs, autors):
+                    data = {'song': song.string, 'author': author.string}
+                    response.append(data)
+                return response
+        
+            def parse_chart(self):
+                content=self.get_chart()
+                soup=BeautifulSoup(content, 'html.parser')
+                song_class='link-block-target'
+                author_class='globalchart-track-artist-name'
+                songs=soup.find_all('a', {'class':song_class})
+                authors = soup.find_all('td', {'class': author_class})
+                return self._parse_chart(songs, authors)
+                </code></pre>        
+            </section>
+            <section class="section" id="education">
+                <h2 class="section-title">Education</h2>
+                <p>higher education (BNTU (Belarusian National Technical University)- road construction engineer</p>
+            </section>
+            <section class="section" id="english">
+                <h2 class="section-title">English</h2>
+                <p>Elementary (A2)</p>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div>© 2022 <a href="https://github.com/egor334334" class="github nav-link">egor334334</a></div>
+            <a href="https://rs.school/js/" class="rss"><img src="rs_school_js.svg" width="90" alt="RS School"></a>
+        </div>
+        
     </footer>
 </body>
 </html>
